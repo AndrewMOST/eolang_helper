@@ -1,0 +1,83 @@
+%YAML 1.2
+---
+name: Elegant Objects
+file_extensions: [eo]
+scope: source.eo
+
+contexts:
+  main:
+    - match: '#'
+      scope: keyword.control.c
+      push: comment
+
+    - match: '"'
+      scope: string.c
+      push: quoted_string
+
+    - match: '\['  
+      scope: punctuation.section.brackets.begin
+      push: brackets 
+
+    - include: meta
+    - include: number
+    - include: at
+    - include: symbols
+    - include: root
+    - include: home
+    - include: bool
+    - include: greater
+
+  meta:
+    - match: '\+[a-z]+ .*'
+      scope: entity.name.namespace
+
+  quoted_string:
+    - meta_scope: string.c
+    - match: '"'
+      scope: string.c
+      pop: true
+
+  brackets:
+    - match: '\]'
+      scope: punctuation.section.brackets.end
+      pop: true   
+
+  number:
+    - match: ' +[0-9]+\.?[0-9]*'
+      scope: constant.numeric
+
+  at:
+    - match: '@'
+      scope: punctuation.definition.keyword      
+
+  symbols:
+    - match: '[.:*!/?&$]'
+      scope: punctuation.accessor
+
+  root:
+    - match: 'Q'
+      scope: storage.type 
+
+  home:
+    - match: 'QQ'
+      scope: storage.type 
+
+  bool:
+    - match: '(TRUE|FALSE)'
+      scope: constant.language    
+
+  greater:
+    - match: '>'
+      scope: meta.generic    
+
+  comment:
+    - match: '[^\r\n]*'
+      scope: comment.c
+      pop: true
+
+
+
+
+
+
+
