@@ -1,0 +1,21 @@
+{
+   "scope": "source.eo",
+
+   "completions":
+   [
+      { "trigger": "package", "contents": "+package ", "kind": "namespace"},
+      { "trigger": "alias", "contents": "+alias ", "kind": "namespace"},
+      { "trigger": "rt", "contents": "+rt ", "kind":"namespace"},
+      { "trigger": "app", "contents": "[] > app\n   $0"},
+      { "trigger": "app args", "contents": "[args...] > app\n   $0"},
+      { "trigger": "sprintf", "contents": "QQ.txt.sprintf\n   \"$0\""},
+      { "trigger": "stdout", "contents": "QQ.io.stdout > $1\n   $0"},
+      { "trigger": "seq", "contents": "seq > $1\n   $0"},
+      { "trigger": "while", "contents": "while.\n   $0"},
+      { "trigger": "true", "contents": "TRUE", "kind" : "type"},
+      { "trigger": "false", "contents": "FALSE", "kind" : "type"},
+      { "trigger": "list", "contents": "[$2] > $1\n   $0"},
+      { "trigger": "float", "contents" :"/float", "kind": "type"},
+      { "trigger": "int", "contents" :"/int", "kind": "type"},
+   ]
+}
